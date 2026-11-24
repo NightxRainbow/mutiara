@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUTIARA mockup, Indonesia Seafood Assurance</title>
+<style>
+:root{color-scheme:light;
+--samudra:#0d3349;--laut:#14506e;--mutiara:#f2f5f6;--garis:#c9d3d8;--tinta:#16242c;--abu:#52626b;
+--tautan:#0a5a9c;--merah:#c8102e;
+--ok:#1a7a46;--ok-bg:#e4f3ea;--warn:#8f5200;--warn-bg:#fdf0d9;--bad:#a3232b;--bad-bg:#fbe6e7;--idle:#52626b;--idle-bg:#e9eef0;
+--display:"Bahnschrift","DIN Alternate","Roboto Condensed","Arial Narrow",sans-serif;
+--body:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 var(--body);color:var(--tinta);background:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:.005em}
+h1{font-size:clamp(34px,5vw,52px)}h2{font-size:30px}h3{font-size:20px}
+p{margin:0 0 1em;max-width:70ch}
+a{color:var(--tautan);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #f5b800;outline-offset:2px}
+.small{font-size:14px;color:var(--abu)}
+.btn{font:600 16px var(--body);background:var(--samudra);color:#fff;border:2px solid var(--samudra);padding:10px 18px;border-radius:2px;cursor:pointer}
+.btn.alt{background:#fff;color:var(--samudra)}
+.btn.danger{background:var(--bad);border-color:var(--bad)}
+label{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+input,select{font:16px var(--body);width:100%;padding:9px 10px;border:2px solid var(--tinta);border-radius:0;background:#fff;color:var(--tinta)}
+/* mockup chrome */
+.mock-bar{background:#fff7d6;border-bottom:2px dashed #b99a2e;padding:8px 16px;font-size:14px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.mock-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.mock-tabs button{font:14px var(--body);border:1px solid #b99a2e;background:#fff;padding:4px 10px;cursor:pointer;border-radius:2px}
+.mock-tabs button.on{background:#5c4a00;color:#fff;border-color:#5c4a00}
+body[data-mode="internal"] .public-chrome{display:none}
+/* public chrome */
+.official{background:var(--mutiara);border-bottom:1px solid var(--garis);font-size:14px}
+.official .wrap{display:flex;gap:10px;align-items:center;padding-top:6px;padding-bottom:6px}
+.flag{width:24px;height:16px;border:1px solid var(--garis);background:linear-gradient(var(--merah) 50%,#fff 50%);flex:none}
+.lang{margin-left:auto;font:600 14px var(--body);background:none;border:0;color:var(--tautan);text-decoration:underline;cursor:pointer;padding:4px}
+.mast{background:var(--samudra);color:#fff}
+.mast .wrap{display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-top:18px}
+.brand{color:#fff;text-decoration:none;padding-bottom:16px}
+.brand-main{display:block;font:600 26px/1.1 var(--display)}
+.brand-sub{display:block;font-size:13px;opacity:.85;margin-top:3px}
+.mast nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+.mast nav a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:10px 12px 12px;border-bottom:4px solid transparent}
+.mast nav a:hover{border-bottom-color:#8fb8cc}
+.mast nav a.on{background:#fff;color:var(--samudra);border-bottom-color:#fff}
+.view{display:none}.view.on{display:block}
+.band{padding:48px 0}.band.tint{background:var(--mutiara)}
+.foot{background:var(--samudra);color:#dbe6ec;font-size:14px;padding:28px 0;margin-top:0}
+.foot a{color:#fff}
+/* home */
+.hero{background:var(--samudra);color:#fff;padding:40px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hero .lede{font-size:19px;color:#dbe6ec}
+.verify{background:#fff;color:var(--tinta);padding:24px;border-top:6px solid #f5b800}
+.verify h2{font-size:24px}
+.row{display:flex;gap:8px;align-items:flex-end}.row>div{flex:1}
+.samples{margin:12px 0 0;font-size:14px;color:var(--abu)}
+.samples button{font:14px var(--body);background:none;border:0;color:var(--tautan);text-decoration:underline;cursor:pointer;padding:2px 4px}
+.slip{margin-top:16px;border:1px solid var(--garis);border-left:10px solid var(--idle);padding:14px 16px;background:var(--idle-bg)}
+.slip.ok{border-left-color:var(--ok);background:var(--ok-bg)}.slip.warn{border-left-color:var(--warn);background:var(--warn-bg)}.slip.bad{border-left-color:var(--bad);background:var(--bad-bg)}
+.slip .verdict{font:600 26px/1.1 var(--display);margin-bottom:2px}
+.slip.ok .verdict{color:var(--ok)}.slip.warn .verdict{color:var(--warn)}.slip.bad .verdict{color:var(--bad)}
+dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:10px 0 0;font-size:15px}
+dl.kv dt{color:var(--abu)}dl.kv dd{margin:0;font-weight:600}
+.tasks{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;list-style:none;padding:0;margin:0}
+.tasks li{border-top:4px solid var(--samudra);padding-top:12px}
+.tasks a{font:600 21px/1.2 var(--display)}
+.tasks p{font-size:15px;color:var(--abu);margin:6px 0 0}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:0;list-style:none;padding:0;margin:24px 0 0;counter-reset:s}
+.stages li{counter-increment:s;border-left:2px solid var(--laut);padding:0 20px 4px 16px}
+.stages li::before{content:counter(s);font:600 34px/1 var(--display);color:var(--laut);display:block;margin-bottom:8px}
+.stages h3{margin-bottom:6px}.stages p{font-size:15px;margin:0}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:24px}
+.fig{border-top:3px solid var(--tinta);padding-top:10px}
+.fig .num{font:600 40px/1 var(--display);font-variant-numeric:tabular-nums}
+.fig .name{font-weight:600;margin:6px 0 4px}
+.fig .def{font-size:14px;color:var(--abu);margin:0 0 6px}
+.fig .src{font-size:13px;color:var(--abu);border-top:1px solid var(--garis);padding-top:6px;margin:0}
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.notices{list-style:none;padding:0;margin:0}
+.notices li{border-top:1px solid var(--garis);padding:12px 0;display:grid;grid-template-columns:110px 1fr;gap:16px}
+.notices time{font-size:14px;color:var(--abu)}
+.box{border:2px solid var(--samudra);padding:20px}
+.sample-flag{display:inline-block;font:600 12px var(--body);background:#fff7d6;border:1px dashed #b99a2e;color:#5c4a00;padding:1px 6px;vertical-align:middle}
+/* status + tables */
+.tag{display:inline-block;font-weight:600;font-size:14px;padding:2px 8px;border-radius:2px;white-space:nowrap}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}.tag.warn{background:var(--warn-bg);color:var(--warn)}.tag.bad{background:var(--bad-bg);color:var(--bad)}.tag.idle{background:var(--idle-bg);color:var(--idle)}
+table.reg{width:100%;border-collapse:collapse;font-size:15px;margin-top:16px}
+table.reg th{text-align:left;font-weight:600;border-bottom:2px solid var(--tinta);padding:8px 10px 8px 0;vertical-align:bottom}
+table.reg td{border-bottom:1px solid var(--garis);padding:10px 10px 10px 0;vertical-align:top}
+table.reg tbody tr.pick{cursor:pointer}table.reg tbody tr.pick:hover{background:var(--mutiara)}
+table.reg tr.sel{background:#e6f0f6}
+.scroll{overflow-x:auto}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-top:20px}
+.callout{border-left:6px solid var(--laut);background:var(--mutiara);padding:12px 16px;margin:16px 0;max-width:80ch}
+.profile{border:2px solid var(--samudra);padding:24px;margin-top:24px}
+.missing{color:var(--abu);font-style:italic;font-weight:400}
+/* journey */
+.chain{list-style:none;padding:0;margin:24px 0 0;counter-reset:c;border-left:4px solid var(--laut)}
+.chain li{counter-increment:c;padding:0 0 0 24px;margin:0 0 2px;position:relative}
+.chain li::before{content:counter(c);position:absolute;left:-18px;top:10px;width:32px;height:32px;border-radius:50%;background:var(--laut);color:#fff;font:600 17px/32px var(--display);text-align:center}
+.chain summary{font:600 22px var(--display);padding:12px 0;cursor:pointer}
+.chain details{border-bottom:1px solid var(--garis)}
+.chain details[open] summary{color:var(--laut)}
+/* workspace */
+.ws{display:grid;grid-template-columns:240px 1fr;min-height:80vh}
+.ws-side{background:var(--tinta);color:#dfe7ea;padding:20px 0;font-size:15px}
+.ws-side h2{font-size:20px;color:#fff;padding:0 18px}
+.ws-side ul{list-style:none;margin:0;padding:0}
+.ws-side li{padding:7px 18px;display:flex;justify-content:space-between;gap:8px}
+.ws-side li.cur{background:#fff;color:var(--tinta);font-weight:600}
+.pill{font-size:11px;font-weight:600;background:#f5b800;color:#2a2100;padding:1px 6px;border-radius:8px;align-self:center}
+.ws-main{padding:24px 28px 48px;background:var(--mutiara)}
+.ws-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;margin-bottom:16px}
+.panel{background:#fff;border:1px solid var(--garis);padding:18px 20px;margin-top:20px}
+.panel .figs{grid-template-columns:repeat(4,1fr);margin-top:8px}
+.trace{display:flex;list-style:none;padding:0;margin:14px 0 0;overflow-x:auto}
+.trace li{flex:1;min-width:120px;border-top:4px solid var(--ok);padding:8px 10px 0 0;font-size:14px}
+.trace li.gap{border-top-style:dashed;border-top-color:var(--abu)}
+.trace b{display:block}
+.flow{display:flex;gap:0;list-style:none;padding:0;margin:12px 0}
+.flow li{flex:1;border:1px solid var(--garis);padding:8px 10px;font-size:14px;background:#fff}
+.flow li.done{background:var(--ok-bg)}.flow li.now{border:2px solid var(--samudra);font-weight:600}
+.doc{max-width:960px}
+.doc h2{margin-top:40px}.doc h2:first-child{margin-top:0}
+@media(max-width:820px){.hero-grid,.two,.ws{grid-template-columns:1fr}.mast .wrap{gap:4px;padding-top:12px}.brand{padding-bottom:6px}.mast nav{margin-left:-10px}.mast nav a{padding:8px 10px;font-size:14px}.hero{padding:24px 0 32px}.hero-grid{gap:20px}.hero h1{font-size:30px;margin-bottom:8px}.hero .lede{font-size:16px}.band{padding:32px 0}.tasks,.stages,.figs,.panel .figs{grid-template-columns:1fr 1fr}.filters{grid-template-columns:1fr}.stages li{margin-bottom:20px}}
+@media(max-width:520px){.tasks,.stages,.figs,.panel .figs{grid-template-columns:1fr}.row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body data-mode="public">
+<div class="mock-bar">
+  <span><strong>Mockup, draft 1.</strong> Every company, number and certificate shown is sample data.</span>
+  <div class="mock-tabs">
+    <button data-go="home" class="on">Home</button>
+    <button data-go="est">Establishments</button>
+    <button data-go="req">Export requirements</button>
+    <button data-go="journey">Assurance journey</button>
+    <button data-go="work">Internal workspace</button>
+    <button data-go="analysis">Requirements analysis</button>
+  </div>
+</div>
+
+<div class="public-chrome">
+  <div class="official"><div class="wrap">
+    <span class="flag" aria-hidden="true"></span>
+    <span data-id="Situs resmi Otoritas Kompeten hasil perikanan Republik Indonesia">Official website of the Competent Authority for fishery products, Republic of Indonesia</span>
+    <button class="lang" id="lang">Bahasa Indonesia</button>
+  </div></div>
+  <header class="mast"><div class="wrap">
+    <a href="#" data-go="home" class="brand">
+      <span class="brand-main">Indonesia Seafood Assurance</span>
+      <span class="brand-sub">MUTIARA, Otoritas Kompeten Perikanan Indonesia</span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#" data-go="home" class="on" data-id="Verifikasi sertifikat">Verify a certificate</a>
+      <a href="#" data-go="est" data-id="Cari fasilitas">Find an establishment</a>
+      <a href="#" data-go="req" data-id="Persyaratan ekspor">Export requirements</a>
+      <a href="#" data-go="journey" data-id="Cara mutu dikendalikan">How seafood is controlled</a>
+    </nav>
+  </div></header>
+</div>
+
+<main>
+<section class="view on" id="v-home">
+<div class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1 data-id="Jaminan Mutu Hasil Perikanan Indonesia">Indonesia Seafood Assurance</h1>
+    <p class="lede" data-id="Otoritas Kompeten resmi untuk hasil perikanan. Periksa fasilitas yang disetujui, pastikan keaslian sertifikat, pahami pengendalian nasional, dan hubungi pejabat berwenang.">The official Competent Authority for fishery products. Check approved facilities, authenticate certificates, understand national controls and reach official counterparts.</p>
+    <p class="small" style="color:#b9cdd8" data-id="Status di situs ini berasal dari sistem unit penerbit dan dihitung ulang setiap hari dari tanggal masa berlaku.">Statuses on this site come from the issuing unit's system and are recalculated every day from the validity dates.</p>
+  </div>
+  <div class="verify">
+    <h2 data-id="Verifikasi sertifikat">Verify a certificate</h2>
+    <form id="vform" class="row">
+      <div><label for="vno" data-id="Nomor sertifikat">Certificate number</label><input id="vno" autocomplete="off" placeholder="ID-HACCP-2026-00412"></div>
+      <button class="btn" type="submit" data-id="Verifikasi">Verify</button>
+    </form>
+    <p class="samples">Sample numbers to try: <span id="vsamples"></span></p>
+    <div id="vout" class="slip" aria-live="polite">
+      <div class="verdict" style="font-size:18px">Enter the number printed on the certificate, or scan its QR code.</div>
+      <span class="small">You will see the issuer, scope, validity period and current status. No company trade data is shown.</span>
+    </div>
+  </div>
+</div></div>
+
+<div class="band"><div class="wrap">
+  <ul class="tasks">
+    <li><a href="#" data-go="est" data-id="Cari fasilitas yang disetujui">Find an approved establishment</a><p>Search by approval number, name, province, product or destination market.</p></li>
+    <li><a href="#" data-go="req" data-id="Persyaratan pasar ekspor">Check export market requirements</a><p>What the European Union, United States, Japan and China require, by product.</p></li>
+    <li><a href="#" data-go="journey" data-id="Cara mutu dikendalikan">See how seafood is controlled</a><p>Who controls what, from farm and vessel to the export certificate.</p></li>
+    <li><a href="#contact" data-id="Hubungi Otoritas Kompeten">Contact the Competent Authority</a><p>Official desk for foreign authorities, with a ticket number and response time.</p></li>
+  </ul>
+</div></div>
+
+<div class="band tint"><div class="wrap">
+  <h2 data-id="Bagaimana hasil perikanan Indonesia dikendalikan">How Indonesian seafood is controlled</h2>
+  <p>Four stages, each with a responsible unit and a record that can be checked.</p>
+  <ol class="stages">
+    <li><h3>Source</h3><p>Farms and vessels are registered. Feed, veterinary drugs, water and on-board handling are covered by good practice certification.</p></li>
+    <li><h3>Processing</h3><p>Processing plants run a HACCP plan for each product and hold a processing eligibility certificate with a defined scope.</p></li>
+    <li><h3>Official controls</h3><p>Inspectors audit plants on a risk-based schedule. Accredited laboratories test samples. Findings are tracked until closed.</p></li>
+    <li><h3>Export</h3><p>A health certificate is issued for each consignment, only from a plant whose approval is in force for that market.</p></li>
+  </ol>
+  <p style="margin-top:24px"><a href="#" data-go="journey">Open the full assurance journey</a></p>
+</div></div>
+
+<div class="band"><div class="wrap">
+  <h2 data-id="Angka nasional">National figures <span class="sample-flag">Sample data</span></h2>
+  <p>Each figure states what is counted, where it comes from and when it was last updated. The same definition is used on every page of this site and in the internal workspace.</p>
+  <div class="figs">
+    <div class="fig"><div class="num">1,780</div><p class="name">Units with a certificate in force</p><p class="def">Primary production 883 and processing 897. Counted only if the validity date has not passed.</p><p class="src">Source: issuing units' certificate systems. Updated 18 Nov 2026, 06.00 WIB.</p></div>
+    <div class="fig"><div class="num">4,664</div><p class="name">Certificates in force</p><p class="def">One unit may hold several. Expired, suspended and withdrawn certificates are excluded.</p><p class="src">Source: Pusat Mutu Pascapanen and Pusat Mutu Produksi Primer. Updated 18 Nov 2026, 06.00 WIB.</p></div>
+    <div class="fig"><div class="num">17</div><p class="name">Laboratories with accredited scope</p><p class="def">Laboratories whose accreditation covers at least one fishery product test and is in force.</p><p class="src">Source: laboratory register. Updated 1 Nov 2026.</p></div>
+    <div class="fig"><div class="num">23</div><p class="name">Export rejections, Jan to Oct 2026</p><p class="def">Consignments refused at a destination border and notified to the authority. 19 closed, 4 under investigation.</p><p class="src">Source: incident register. Updated 14 Nov 2026.</p></div>
+  </div>
+</div></div>
+
+<div class="band tint" id="contact"><div class="wrap two">
+  <div>
+    <h2 data-id="Pemberitahuan resmi">Official notifications <span class="sample-flag">Sample data</span></h2>
+    <ul class="notices">
+      <li><time>12 Nov 2026</time><div><a href="#">Change to residue testing frequency for farmed shrimp bound for the European Union</a><br><span class="small">Rule change. Applies from 1 Jan 2027.</span></div></li>
+      <li><time>5 Nov 2026</time><div><a href="#">One establishment suspended, Central Java</a><br><span class="small">Status change. The directory was updated the same day.</span></div></li>
+      <li><time>28 Oct 2026</time><div><a href="#">Corrective action closed after a histamine rejection, tuna loins</a><br><span class="small">Public summary. Company trade details are not published.</span></div></li>
+    </ul>
+    <p style="margin-top:12px"><a href="#">All notifications</a> or <a href="#">get an email when a rule changes</a></p>
+  </div>
+  <div class="box">
+    <h3 data-id="Meja layanan otoritas asing">Desk for foreign Competent Authorities</h3>
+    <p>For clarification of a case, extra validation of a certificate, or an audit request. You receive a ticket number and a reply from an authorised officer.</p>
+    <dl class="kv"><dt>Email</dt><dd>ca-desk@<span class="missing">domain to be set</span></dd><dt>First reply</dt><dd>Within 2 working days</dd><dt>Languages</dt><dd>English, Indonesian</dd></dl>
+    <p style="margin:16px 0 0"><button class="btn">Open a request</button></p>
+    <p class="small" style="margin:10px 0 0">Requests for a certificate or a formal decision still go through the official channel.</p>
+  </div>
+</div></div>
+</section>
+<section class="view" id="v-est">
+<div class="band"><div class="wrap">
+  <h1 data-id="Fasilitas yang disetujui">Approved establishments</h1>
+  <p>Processing plants that hold an approval in force from the Indonesian Competent Authority. <span class="sample-flag">Sample data</span></p>
+  <div class="callout"><strong>A listing does not guarantee an individual shipment.</strong> It shows that the plant's control system was approved for the stated products and period. Each consignment still needs its own health certificate.</div>
+  <div class="filters">
+    <div><label for="fq">Approval number, name, province or product</label><input id="fq" placeholder="for example CR 412-13 or shrimp"></div>
+    <div><label for="fm">Destination market</label><select id="fm"><option value="">Any market</option><option>EU</option><option>US</option><option>Japan</option><option>China</option><option>ASEAN</option></select></div>
+    <div><label for="fs">Status</label><select id="fs"><option value="">Any status</option><option value="ok">Valid</option><option value="warn">Valid, expiring</option><option value="bad">Expired or suspended</option></select></div>
+  </div>
+  <p class="small" style="margin:14px 0 0"><span id="ecount"></span> Register updated 18 Nov 2026, 06.00 WIB. <a href="#">Download the full list (CSV)</a></p>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Approval no.</th><th>Establishment</th><th>Province</th><th>Approved products</th><th>Listed for</th><th>Valid until</th><th>Status</th></tr></thead>
+    <tbody id="erows"></tbody>
+  </table></div>
+  <div id="eprofile"></div>
+</div></div>
+</section>
+<section class="view" id="v-req">
+<div class="band"><div class="wrap">
+  <h1 data-id="Persyaratan pasar ekspor">Export market requirements</h1>
+  <p>Choose a destination and a product to see what must be in place before a health certificate can be issued. <span class="sample-flag">Illustrative summary</span></p>
+  <div class="filters" style="grid-template-columns:1fr 1fr 1fr">
+    <div><label for="rm">Destination market</label><select id="rm"><option value="EU">European Union</option><option value="US">United States</option><option value="JP">Japan</option><option value="CN">China</option></select></div>
+    <div><label for="rc">Product</label><select id="rc"><option value="shrimp">Shrimp, farmed</option><option value="tuna">Tuna</option><option value="ceph">Squid, cuttlefish, octopus</option></select></div>
+    <div style="align-self:end"><button class="btn alt" type="button">Email me when this changes</button></div>
+  </div>
+  <div id="rout" class="profile"></div>
+  <div class="callout">The destination country's own authority is the final reference. This page is checked against the official source on the date shown and links to it.</div>
+</div></div>
+</section>
+<section class="view" id="v-journey">
+<div class="band"><div class="wrap">
+  <h1 data-id="Perjalanan jaminan mutu">Assurance journey</h1>
+  <p>Six points between the water and the export certificate. Open a point to see the control applied, the unit responsible, the standard behind it and the record that proves it.</p>
+  <p class="small">Unit names follow the nomenclature in force and will be confirmed with each unit before publication.</p>
+  <ol class="chain">
+    <li><details open><summary>Primary production</summary>
+      <dl class="kv"><dt>Control</dt><dd>Good aquaculture practice at hatchery and farm: feed, veterinary drugs, withdrawal periods, water source. Vessel registration for capture.</dd><dt>Responsible</dt><dd>Guidance: DJPB (farmed), DJPT (capture). Certification control: Pusat Mutu Produksi Primer.</dd><dt>Basis</dt><dd>Permen KP 8/2024, Articles 7 and 8. National residue monitoring plan.</dd><dt>Record kept</dt><dd>Pond or vessel ID, drug use log, residue screening result.</dd><dt>Published</dt><dd>National totals only.</dd></dl><p></p></details></li>
+    <li><details><summary>Handling and landing</summary>
+      <dl class="kv"><dt>Control</dt><dd>Good handling practice on board and at the landing site: ice, time and temperature, hygiene.</dd><dt>Responsible</dt><dd>Guidance: DJPT. Certification control: Pusat Mutu Produksi Primer.</dd><dt>Basis</dt><dd>Good fish handling practice certification. Codex CXC 52-2003.</dd><dt>Record kept</dt><dd>Vessel of origin, landing time, handling history.</dd><dt>Published</dt><dd>Description of the traceability framework.</dd></dl><p></p></details></li>
+    <li><details><summary>Processing</summary>
+      <dl class="kv"><dt>Control</dt><dd>Receiving checks, a HACCP plan for each product, sanitation procedures, deviation and corrective action records.</dd><dt>Responsible</dt><dd>Guidance: DJPDSPKP. Certification control: Pusat Mutu Pascapanen.</dd><dt>Basis</dt><dd>Processing eligibility certificate and HACCP certificate. Codex HACCP principles.</dd><dt>Record kept</dt><dd>Lot ID, critical limit monitoring, corrective actions, internal audit.</dd><dt>Published</dt><dd>Establishment, approval number, product scope, validity, status.</dd></dl><p></p></details></li>
+    <li><details><summary>Laboratory testing</summary>
+      <dl class="kv"><dt>Control</dt><dd>Risk-based sampling plan. Tests by laboratories whose accreditation covers the method used.</dd><dt>Responsible</dt><dd>Laboratories and inspection bodies under Article 10. Harmonisation: Pusat Manajemen Mutu.</dd><dt>Basis</dt><dd>Permen KP 8/2024, Article 10. ISO/IEC 17025 accreditation scope.</dd><dt>Record kept</dt><dd>Sample code, method, certificate of analysis, link to the lot.</dd><dt>Published</dt><dd>Laboratory list with accredited scope.</dd></dl><p></p></details></li>
+    <li><details><summary>Storage and transport</summary>
+      <dl class="kv"><dt>Control</dt><dd>Cold store and container temperature, logger calibration, alarm review, manual log when a sensor is down.</dd><dt>Responsible</dt><dd>The establishment, verified during official audits.</dd><dt>Basis</dt><dd>The plant's HACCP plan. Temperature is a critical control point only where the hazard analysis says so.</dd><dt>Record kept</dt><dd>Device ID, readings with source label, deviations and the action taken.</dd><dt>Published</dt><dd>Reviewed national indicator, once a real data source exists.</dd></dl><p></p></details></li>
+    <li><details><summary>Export certification</summary>
+      <dl class="kv"><dt>Control</dt><dd>Before a health certificate is issued the system checks that the plant's approval is in force for that product and market.</dd><dt>Responsible</dt><dd>The authorised issuing unit of BPPMHKP.</dd><dt>Basis</dt><dd>Destination market requirements and the bilateral certificate model.</dd><dt>Record kept</dt><dd>Certificate number, lot IDs, seal and container, issuing officer.</dd><dt>Published</dt><dd>Certificate check by number or QR code.</dd></dl><p></p></details></li>
+  </ol>
+  <h2 style="margin-top:48px">Quality in action</h2>
+  <div class="callout"><strong>Pilot programme in progress.</strong> Five to ten processing plants are being assessed through three verification gates. Case studies will be published here after each plant passes gate 3 and agrees to publication. No results are shown until they are verified.</div>
+</div></div>
+</section>
+<section class="view" id="v-work">
+<div class="ws">
+  <aside class="ws-side">
+    <h2>MUTIARA workspace</h2>
+    <ul>
+      <li class="cur">Overview</li>
+      <li>Facility master <span class="pill">new</span></li>
+      <li>Certificates</li>
+      <li>Audit readiness checklist <span class="pill">new</span></li>
+      <li>Lot traceability <span class="pill">new</span></li>
+      <li>Evidence room and HACCP <span class="pill">new</span></li>
+      <li>Audits and inspections</li>
+      <li>Laboratory and sampling <span class="pill">new</span></li>
+      <li>CAPA register <span class="pill">new</span></li>
+      <li>Incidents and rejections <span class="pill">new</span></li>
+      <li>Cold chain and sensors</li>
+      <li>Publication queue <span class="pill">new</span></li>
+      <li>Users and roles</li>
+      <li>Change log <span class="pill">new</span></li>
+    </ul>
+  </aside>
+  <div class="ws-main">
+    <div class="ws-head">
+      <h1 style="font-size:32px;margin:0">Overview <span class="sample-flag">Sample data</span></h1>
+      <span class="small">Signed in as Manajer Mutu (PMM). This role can check and verify. It cannot publish.</span>
+    </div>
+
+    <div class="panel">
+      <h3>Figures, with the same definitions as the public site</h3>
+      <div class="figs">
+        <div class="fig"><div class="num">1,780</div><p class="name">Units with a certificate in force</p><p class="def">Primary 883 and processing 897.</p><p class="src">Certificate systems. 18 Nov 2026, 06.00. <a href="#">View the 1,780 records</a></p></div>
+        <div class="fig"><div class="num">4,664</div><p class="name">Certificates in force</p><p class="def">312 expired since 30 Oct 2026 are excluded and listed separately.</p><p class="src">Certificate systems. 18 Nov 2026, 06.00. <a href="#">View records</a></p></div>
+        <div class="fig"><div class="num">56</div><p class="name">Open findings</p><p class="def">Primary 21 and post-harvest 35. One definition: a nonconformity not yet verified as closed.</p><p class="src">CAPA register. 18 Nov 2026, 09.12. <a href="#">View the 56 records</a></p></div>
+        <div class="fig"><div class="num">72%</div><p class="name">CAPA closed on time and verified</p><p class="def">126 of 175 that fell due in 2026. Administrative closure alone does not count.</p><p class="src">CAPA register. 18 Nov 2026, 09.12. <a href="#">View records</a></p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>CAPA register</h3>
+      <p class="small" style="margin:0">Status is calculated from the due date. A user cannot leave an item as “in progress” after the deadline.</p>
+      <div class="scroll"><table class="reg"><thead><tr><th>ID</th><th>Finding</th><th>Root cause</th><th>Owner</th><th>Due</th><th>Evidence</th><th>Status</th></tr></thead><tbody id="capa"></tbody></table></div>
+    </div>
+
+    <div class="panel">
+      <h3>Lot trace, backward from the export lot</h3>
+      <p class="small" style="margin:0">Lot LOT-26-1107-A, frozen shrimp, PT Contoh Samudra Satu. Each link shows its source and time. A missing link says so.</p>
+      <ol class="trace">
+        <li><b>Health certificate</b>ID-HC-2026-118877<br><span class="small">Issuing unit, 9 Nov</span></li>
+        <li><b>Container</b>Seal 0048812<br><span class="small">Plant record, 8 Nov</span></li>
+        <li><b>Cold store</b>Room 2, 3 days<br><span class="small">Manual log, 5 to 8 Nov</span></li>
+        <li class="gap"><b>Laboratory test</b><span class="missing">Data not yet available</span><br><span class="small">Requested 6 Nov</span></li>
+        <li><b>Process batch</b>B-1105-02<br><span class="small">Plant record, 5 Nov</span></li>
+        <li><b>Receiving</b>R-1104-17<br><span class="small">Plant record, 4 Nov</span></li>
+        <li><b>Farm</b>Pond ID 3 of supplier S-021<br><span class="small">Supplier record, 4 Nov</span></li>
+      </ol>
+      <p style="margin:14px 0 0"><button class="btn alt">Trace forward from the raw material lot</button></p>
+    </div>
+
+    <div class="panel">
+      <h3>Cold chain and sensors</h3>
+      <p><span class="tag idle">No devices connected</span> 0 of 0 devices reporting. The cold chain indicator is hidden on the leadership dashboard until a real data source exists.</p>
+      <p class="small" style="margin:0">Manual temperature logs remain valid under the plant's procedure and are labelled “manual” wherever they appear. When devices are added, each one needs an ID, location, calibration history, alarm limits and a flag for missing data.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Publication queue</h3>
+      <p class="small" style="margin:0">Status change for CR 255-14, PT Contoh Rajungan Empat: valid to suspended. Four different accounts handle the four steps.</p>
+      <ol class="flow"><li class="done">Entered<br><span class="small">UPT officer, 5 Nov 09.10</span></li><li class="done">Checked<br><span class="small">Technical manager, 5 Nov 10.02</span></li><li class="done">Approved<br><span class="small">Top manager, 5 Nov 11.30</span></li><li class="now">Published<br><span class="small">Publisher, 5 Nov 11.41</span></li></ol>
+      <p style="margin:0"><button class="btn danger">Withdraw this record from the public site</button> <span class="small">Takes effect at once and is written to the change log with a reason.</span></p>
+    </div>
+  </div>
+</div>
+</section>
+<section class="view" id="v-analysis">
+<div class="band"><div class="wrap doc">
+  <h1>Requirements analysis</h1>
+  <p>The reference sites are plain. None of them wins trust with imagery or large claims. They win it by answering one question quickly, showing where the answer came from and when it was last checked. The last online version of MUTIARA failed on that point: the same count differed between pages and expired certificates were shown as active. A foreign auditor who finds one such mismatch stops trusting every other number, so the data rules below matter more than the visual design.</p>
+
+  <h2>What the mockup takes from each reference site</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Pattern</th><th>Taken from</th><th>Where it appears</th></tr></thead>
+    <tbody>
+      <tr><td>Check a certificate by number, without logging in</td><td>NOAA certificate validation</td><td>Home, first screen</td></tr>
+      <tr><td>Facility list with approval number, scope and status, kept separate from per-shipment certificates</td><td>FDA export lists, EU authorised establishments</td><td>Establishments, with the listing disclaimer</td></tr>
+      <tr><td>Find requirements by destination and product</td><td>GOV.UK certificate finder, CFIA requirements library, Mattilsynet</td><td>Export requirements</td></tr>
+      <tr><td>Guidance organised by steps, with reporting of nonconformity</td><td>MPI New Zealand</td><td>Assurance journey, notifications</td></tr>
+      <tr><td>One facility profile tied to HACCP evidence and risk-based audits</td><td>DAFF Australia</td><td>Workspace: facility master, evidence room, audit readiness</td></tr>
+      <tr><td>Evidence chain from origin to export</td><td>SERNAPESCA Chile</td><td>Workspace: lot trace. Public: assurance journey</td></tr>
+      <tr><td>Roles, decision trail and data exchange between units</td><td>TRACES NT</td><td>Workspace: publication queue, change log</td></tr>
+      <tr><td>Public summary of alerts, details restricted</td><td>RASFF</td><td>Home: official notifications</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>The 28 findings and how each is answered</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Items</th><th>Requirement</th><th>Where in the mockup</th></tr></thead>
+    <tbody>
+      <tr><td>1, 5, 7</td><td>One definition, one source and one update time for each figure. Totals must add up. Each number opens the records behind it.</td><td>Home and workspace figures</td></tr>
+      <tr><td>2</td><td>Status is calculated from the validity date. A warning appears before expiry.</td><td>Certificate check, directory status column</td></tr>
+      <tr><td>3</td><td>Required fields are enforced. A gap is shown as “data not yet available”.</td><td>Establishment profile, lot trace</td></tr>
+      <tr><td>4, 28</td><td>Overdue is calculated from the due date. Sample data carries a visible flag or is removed.</td><td>CAPA register, sample flags</td></tr>
+      <tr><td>6</td><td>Unfinished maps and charts stay hidden until they have data, axes and a stated period.</td><td>Left out on purpose</td></tr>
+      <tr><td>8, 9</td><td>No “guaranteed” or “under control” wording. Show the number, its scope and its period.</td><td>Home figures, export rejections card</td></tr>
+      <tr><td>10</td><td>Show only services that belong to BPPMHKP. Approval rate uses decided applications only.</td><td>Not drawn. Needs the process owner's confirmation.</td></tr>
+      <tr><td>11</td><td>No personal names or full NIB on public pages. Privacy review before publication.</td><td>Directory shows the legal entity only</td></tr>
+      <tr><td>12 to 18</td><td>Add the missing core modules: lot trace, evidence room, CAPA, audit readiness, audit and laboratory workflow, facility master with publication approval and withdrawal, incident handling.</td><td>Workspace menu and panels</td></tr>
+      <tr><td>19, 20</td><td>Sensor status reflects reality. Cover cold store and container temperature. Keep manual logging as a valid fallback.</td><td>Workspace: cold chain panel</td></tr>
+      <tr><td>21</td><td>Eight roles, four separate steps to publish, change log with before and after.</td><td>Workspace: publication queue</td></tr>
+      <tr><td>22</td><td>Change the admin password that was shared in chat.</td><td>Action for today, not a design item</td></tr>
+      <tr><td>23, 24</td><td>English and Indonesian switch. Certificate check by number or QR.</td><td>Top strip, home</td></tr>
+      <tr><td>25</td><td>Directory shows scope, validity, issuer, update date and the shipment disclaimer.</td><td>Establishments</td></tr>
+      <tr><td>26</td><td>United States and Japan requirements, with notice of rule changes.</td><td>Export requirements</td></tr>
+      <tr><td>27</td><td>Assurance journey, authority profile, public notifications, contact for foreign authorities.</td><td>Journey and home. The authority profile page is not drawn yet.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>What has to exist behind the screens</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Area</th><th>Requirement</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="4">Data</td><td>One facility ID used by every unit and every page.</td><td>Without it, counts of units and laboratories will keep disagreeing.</td></tr>
+      <tr><td>An indicator dictionary: owner, definition, source system and refresh time for each figure. Pages read the stored figure and never calculate their own.</td><td>Fixes items 1, 5 and 7 at the root.</td></tr>
+      <tr><td>Status rules live in the database: valid, expiring, expired, overdue. Users cannot type a status.</td><td>Fixes items 2 and 4.</td></tr>
+      <tr><td>Sample data cannot enter the live database. Every record carries its source.</td><td>Fixes items 4 and 28.</td></tr>
+      <tr><td rowspan="3">Integration</td><td>Certificate and facility status are read from the issuing unit's system by API or scheduled import.</td><td>MUTIARA must not hold a second, competing status.</td></tr>
+      <tr><td>A permanent web address and QR code for each certificate and establishment.</td><td>Buyers and auditors can cite and recheck a record.</td></tr>
+      <tr><td>The register can be downloaded as a file.</td><td>Foreign authorities compare lists in bulk, as with the FDA and EU lists.</td></tr>
+      <tr><td rowspan="3">Governance</td><td>Eight roles. Entry, check, approval and publication held by different accounts.</td><td>Required by the concept document, chapter XI.</td></tr>
+      <tr><td>Change log with user, time, before, after and reason. Records cannot be deleted without procedure.</td><td>An auditor will ask who changed a status and why.</td></tr>
+      <tr><td>Immediate withdrawal of a public record, and a channel for a company to object or request correction.</td><td>A wrong listing does more harm than a missing one.</td></tr>
+      <tr><td rowspan="3">Security and law</td><td>Public portal and workspace run as separate applications. The public side holds only approved copies.</td><td>A breach of the public site must not expose production or trade data.</td></tr>
+      <tr><td>Two-step sign-in for internal accounts, no shared accounts, penetration test before launch.</td><td>Item 22 shows the current practice is unsafe.</td></tr>
+      <tr><td>Personal data review under Law 27/2022 before names or NIB are published. Legal basis recorded for each published field.</td><td>Item 11.</td></tr>
+      <tr><td rowspan="3">Public site quality</td><td>English and Indonesian, with translations reviewed by a person who knows the trade terms.</td><td>The readers are regulators. A wrong term reads as a wrong claim.</td></tr>
+      <tr><td>Light pages that work on a phone and a slow connection, readable by screen readers.</td><td>GOV.UK and CFIA set this standard.</td></tr>
+      <tr><td>Each page shows when it was last updated. Uptime is monitored. A notice appears when a source system is unavailable.</td><td>Stale data must be visible as stale.</td></tr>
+      <tr><td rowspan="2">Operations</td><td>A named data steward in each unit and a monthly data quality report.</td><td>Software alone will not keep the figures consistent.</td></tr>
+      <tr><td>A response time for the foreign authority desk, with ticket numbers and reviewed replies.</td><td>Response speed is one of the outcome measures in chapter XII.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Suggested order of work</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>When</th><th>Work</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Days 1 to 30</td><td>Fix items 1 to 5. Change the shared password. Name the owner and source for each figure. Remove or flag sample data.</td><td>A site whose numbers agree with each other</td></tr>
+      <tr><td>Days 31 to 60</td><td>Public portal: directory, certificate check, language switch, requirements for the EU, United States, Japan and China.</td><td>What a foreign buyer needs on day one</td></tr>
+      <tr><td>Days 61 to 90</td><td>Workspace: facility master, publication queue, CAPA register, audit readiness checklist, evidence room, lot trace for pilot plants.</td><td>Internal proof behind the public status</td></tr>
+      <tr><td>Months 4 to 6</td><td>Pilot with 5 to 10 plants. Laboratory and sampling, incident handling, foreign authority desk.</td><td>Verified case studies for “Quality in action”</td></tr>
+      <tr><td>After the pilot</td><td>Sensors, risk dashboard, data exchange with other countries.</td><td>Added only once the base data is proven</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Decisions that belong to leadership</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Question</th><th>What it changes</th></tr></thead>
+    <tbody>
+      <tr><td>Which unit and which system own the status of a facility and a certificate?</td><td>Where every public figure is read from</td></tr>
+      <tr><td>Which certificates can the public verify: facility certificates, per-shipment health certificates, or both?</td><td>The scope of the certificate check</td></tr>
+      <tr><td>Is there a legal basis to publish company name, address and status?</td><td>What the directory may show</td></tr>
+      <tr><td>Is the data on the current site real or sample?</td><td>Whether to clean it or replace it</td></tr>
+      <tr><td>Do export permits and quarantine inspection stay on the dashboard?</td><td>Item 10. They are not BPPMHKP services.</td></tr>
+    </tbody>
+  </table></div>
+
+</div></div>
+</section>
+</main>
+
+<footer class="public-chrome foot"><div class="wrap">
+  <p style="max-width:none"><strong>Badan Pengendalian dan Pengawasan Mutu Hasil Kelautan dan Perikanan (BPPMHKP)</strong>, Ministry of Marine Affairs and Fisheries, Republic of Indonesia. Legal basis: Permen KP No. 8/2024.</p>
+  <p style="max-width:none;margin:0">Statuses on this site come from the issuing unit's system and carry the time they were last updated. To report a suspected false certificate or an error in a listing, <a href="#" data-go="home">contact the authority</a>.</p>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const D=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const fmt=s=>D(s).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+const TODAY=new Date();TODAY.setHours(0,0,0,0);
+const days=s=>Math.round((D(s)-TODAY)/864e5);
+const MISSING='<span class="missing">Data not yet available</span>';
+
+/* views */
+const PUBLIC=['home','est','req','journey'];
+function go(v){
+  $$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));
+  $$('.mock-tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===v));
+  $$('.mast nav a').forEach(a=>a.classList.toggle('on',a.dataset.go===v));
+  document.body.dataset.mode=PUBLIC.includes(v)?'public':'internal';
+  window.scrollTo(0,0);
+}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t){e.preventDefault();go(t.dataset.go);return}if(e.target.closest('a[href="#"]'))e.preventDefault()});
+
+/* language switch: swaps the leading text of every element that carries data-id */
+let lang='en';
+$('#lang').addEventListener('click',()=>{
+  lang=lang==='en'?'id':'en';
+  $$('[data-id]').forEach(el=>{const n=el.firstChild;if(!n||n.nodeType!==3)return;
+    if(!el.dataset.en)el.dataset.en=n.nodeValue;
+    n.nodeValue=lang==='id'?el.dataset.id+' ':el.dataset.en});
+  $('#lang').textContent=lang==='en'?'Bahasa Indonesia':'English';
+  document.documentElement.lang=lang;
+});
+
+/* sample register */
+const ISSUER='Pusat Mutu Pascapanen, BPPMHKP';
+const E=[
+ {no:'CR 412-13',name:'PT Contoh Samudra Satu',city:'Sidoarjo',prov:'Jawa Timur',scope:'Frozen shrimp, raw and cooked',raw:'Farmed',markets:['EU','US','Japan'],cert:'ID-HACCP-2026-00412',from:'2026-08-15',to:'2027-08-14',upd:'2026-11-17'},
+ {no:'CR 187-11',name:'PT Contoh Tuna Nusantara',city:'Denpasar',prov:'Bali',scope:'Tuna loins, fresh and frozen',raw:'Wild caught',markets:['US','Japan'],cert:'ID-HACCP-2025-01877',from:'2025-12-10',to:'2026-12-09',upd:'2026-11-17'},
+ {no:'CR 093-08',name:'PT Contoh Bahari Tiga',city:'Makassar',prov:'Sulawesi Selatan',scope:'Frozen squid, cuttlefish and octopus',raw:'Wild caught',markets:['EU','China'],cert:'ID-HACCP-2025-00931',from:'2025-10-31',to:'2026-10-30',upd:'2026-10-31'},
+ {no:'CR 255-14',name:'PT Contoh Rajungan Empat',city:'Rembang',prov:'Jawa Tengah',scope:'Pasteurised crab meat',raw:'Wild caught',markets:['US'],cert:'ID-HACCP-2026-00255',from:'2026-03-23',to:'2027-03-22',upd:'2026-11-05',flag:'Suspended',flagNote:'Suspended by the issuer on 5 Nov 2026. Not eligible for new health certificates.'},
+ {no:'CR 301-09',name:'PT Contoh Pelagis Lima',city:'Bitung',prov:'Sulawesi Utara',scope:'Frozen small pelagic fish',raw:'',markets:['China','ASEAN'],cert:'ID-HACCP-2026-00301',from:'2026-05-03',to:'2027-05-02',upd:'2026-11-12'},
+ {no:'CR 366-12',name:'PT Contoh Patin Enam',city:'Bandar Lampung',prov:'Lampung',scope:'Frozen pangasius fillets',raw:'Farmed',markets:['ASEAN','Japan'],cert:'ID-HACCP-2026-00366',from:'2026-07-01',to:'2027-06-30',upd:'2026-11-10'}
+];
+function status(r){
+  if(r.flag)return{k:'bad',t:r.flag,n:r.flagNote};
+  const d=days(r.to);
+  if(d<0)return{k:'bad',t:'Expired',n:`Expired ${-d} days ago. Not counted as a certificate in force.`};
+  if(d<=60)return{k:'warn',t:'Valid, expiring',n:`Expires in ${d} days.`};
+  return{k:'ok',t:'Valid',n:`In force for ${d} more days.`};
+}
+
+/* certificate check */
+function verify(no){
+  const q=no.trim().toUpperCase(),r=E.find(x=>x.cert===q),o=$('#vout');
+  if(!q)return;
+  if(!r){o.className='slip';o.innerHTML=`<div class="verdict">No record found</div><span class="small">No certificate numbered “${esc(no.trim())}” is in the register. Check the number against the paper certificate. If it matches, <a href="#contact">report it to the authority</a>. This result alone does not show that a certificate is false.</span>`;return}
+  const s=status(r);
+  o.className='slip '+s.k;
+  o.innerHTML=`<div class="verdict">${s.t}</div><span>${s.n}</span>
+  <dl class="kv"><dt>Certificate</dt><dd>${r.cert}</dd><dt>Type</dt><dd>HACCP certificate, facility level</dd><dt>Issued to</dt><dd>${r.name}, ${r.no}</dd><dt>Scope</dt><dd>${r.scope}</dd><dt>Validity</dt><dd>${fmt(r.from)} to ${fmt(r.to)}</dd><dt>Issuer</dt><dd>${ISSUER}</dd><dt>Record updated</dt><dd>${fmt(r.upd)}</dd></dl>
+  <p class="small" style="margin:10px 0 0"><a href="#contact">Report a suspected false certificate</a></p>`;
+}
+$('#vform').addEventListener('submit',e=>{e.preventDefault();verify($('#vno').value)});
+$('#vsamples').innerHTML=E.slice(0,4).map(r=>`<button type="button" data-v="${r.cert}">${r.cert}</button>`).join(' ');
+$('#vsamples').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){$('#vno').value=b.dataset.v;verify(b.dataset.v)}});
+
+/* directory */
+function rows(){
+  const q=$('#fq').value.trim().toLowerCase(),m=$('#fm').value,st=$('#fs').value;
+  const list=E.filter(r=>(!q||[r.no,r.name,r.prov,r.city,r.scope].join(' ').toLowerCase().includes(q))&&(!m||r.markets.includes(m))&&(!st||status(r).k===st));
+  $('#ecount').textContent=`${list.length} of ${E.length} establishments shown.`;
+  $('#erows').innerHTML=list.length?list.map(r=>{const s=status(r);return`<tr class="pick" data-no="${r.no}" tabindex="0"><td><strong>${r.no}</strong></td><td><a href="#" onclick="return false">${r.name}</a></td><td>${r.prov}</td><td>${r.scope}</td><td>${r.markets.join(', ')}</td><td>${fmt(r.to)}</td><td><span class="tag ${s.k}">${s.t}</span></td></tr>`}).join(''):'<tr><td colspan="7">No establishment matches. Clear a filter or search by approval number.</td></tr>';
+}
+function profile(no){
+  const r=E.find(x=>x.no===no);if(!r)return;const s=status(r);
+  $$('#erows tr').forEach(t=>t.classList.toggle('sel',t.dataset.no===no));
+  $('#eprofile').innerHTML=`<div class="profile"><h2>${r.name} <span class="tag ${s.k}">${s.t}</span></h2><p>${s.n}</p>
+  <dl class="kv"><dt>Approval number</dt><dd>${r.no}</dd><dt>Location</dt><dd>${r.city}, ${r.prov}</dd><dt>Approved products</dt><dd>${r.scope}</dd><dt>Raw material</dt><dd>${r.raw||MISSING}</dd><dt>Listed for</dt><dd>${r.markets.join(', ')}</dd><dt>Certificate</dt><dd>HACCP certificate ${r.cert}</dd><dt>Issuer</dt><dd>${ISSUER}</dd><dt>Validity</dt><dd>${fmt(r.from)} to ${fmt(r.to)}</dd><dt>Record updated</dt><dd>${fmt(r.upd)}</dd><dt>Data source</dt><dd>Issuing unit's certificate system</dd></dl>
+  <div class="callout">This listing does not guarantee an individual shipment. Ask for the health certificate of the consignment and check it on this site.</div>
+  <p style="margin:0"><a href="#">Report a problem with this listing</a></p></div>`;
+  $('#eprofile').scrollIntoView({block:'nearest'});
+}
+['fq','fm','fs'].forEach(id=>$('#'+id).addEventListener('input',()=>{rows();$('#eprofile').innerHTML=''}));
+$('#erows').addEventListener('click',e=>{const t=e.target.closest('tr[data-no]');if(t)profile(t.dataset.no)});
+$('#erows').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.closest('tr[data-no]');if(t)profile(t.dataset.no)}});
+rows();
+
+/* export requirements (illustrative) */
+const R={
+ EU:{n:'European Union',list:'Required. The plant must be on the EU list of approved establishments for fishery products.',cert:'Official health certificate for fishery products, lodged through TRACES NT.',more:['Catch certificate under the EU rules on illegal fishing, for wild-caught products.','A residue monitoring plan accepted by the EU, for farmed products.'],src:'European Commission, DG SANTE'},
+ US:{n:'United States',list:'No government list for general entry. The plant registers with the FDA as a food facility.',cert:'No health certificate for general entry. The importer must verify that the product was processed under seafood HACCP rules (21 CFR Part 123).',more:['Harvest and landing data for species under the Seafood Import Monitoring Program, which covers shrimp and tuna.','Prior notice to the FDA before arrival.'],src:'FDA and NOAA Fisheries'},
+ JP:{n:'Japan',list:'No establishment list for most fishery products.',cert:'Import notification to a quarantine station of the Ministry of Health, Labour and Welfare under the Food Sanitation Act. Some products also need a health certificate.',more:['Monitoring tests at the border. Repeated violations lead to an inspection order for every consignment.'],src:'Ministry of Health, Labour and Welfare'},
+ CN:{n:'China',list:'Required. The plant must be registered with the General Administration of Customs of China.',cert:'Official health certificate in the model agreed between the two authorities.',more:['Registration number shown on the packaging.','Labelling in Chinese.'],src:'General Administration of Customs of China'}
+};
+const C={shrimp:['Shrimp, farmed','Residues of veterinary drugs, in particular banned antibiotics such as chloramphenicol and nitrofurans.'],tuna:['Tuna','Histamine, controlled through time and temperature from catch onward. Heavy metals, mainly mercury.'],ceph:['Squid, cuttlefish, octopus','Heavy metals, mainly cadmium.']};
+function req(){
+  const r=R[$('#rm').value],c=C[$('#rc').value];
+  $('#rout').innerHTML=`<h2>${c[0]} to ${r.n}</h2>
+  <dl class="kv"><dt>Establishment listing</dt><dd>${r.list}</dd><dt>Certificate</dt><dd>${r.cert}</dd><dt>Also required</dt><dd>${r.more.join('<br>')}</dd><dt>Main hazards tested</dt><dd>${c[1]}</dd><dt>Official source</dt><dd><a href="#">${r.src}</a></dd><dt>Checked against source</dt><dd>15 Nov 2026 <span class="sample-flag">Sample date</span></dd></dl>
+  <p style="margin:16px 0 0"><a href="#" data-go="est">See establishments listed for this market</a></p>`;
+}
+$('#rm').addEventListener('change',req);$('#rc').addEventListener('change',req);req();
+
+/* CAPA register: status is derived, never typed */
+const CAPA=[
+ {id:'CAPA-26-0142',f:'Histamine above the limit in one tuna lot',rc:'Ice shortage at landing',o:'PT Contoh Tuna Nusantara',due:'2026-06-15',ev:'2 files'},
+ {id:'CAPA-26-0187',f:'Logger in cold room 2 past its calibration date',rc:'No calibration schedule',o:'PT Contoh Samudra Satu',due:'2026-06-30',ev:''},
+ {id:'CAPA-26-0231',f:'Supplier list has no pond IDs',rc:'Receiving form lacks the field',o:'PT Contoh Patin Enam',due:'2026-12-05',ev:'1 file'},
+ {id:'CAPA-26-0098',f:'Hand-wash station out of service',rc:'Maintenance backlog',o:'PT Contoh Bahari Tiga',due:'2026-05-20',ev:'3 files',verified:'2026-05-18'}
+];
+$('#capa').innerHTML=CAPA.map(c=>{const d=days(c.due);
+  const s=c.verified?['ok','Closed and verified '+fmt(c.verified)]:d<0?['bad',`Overdue by ${-d} days`]:['warn',`Open, ${d} days left`];
+  return`<tr><td><a href="#" onclick="return false">${c.id}</a></td><td>${c.f}</td><td>${c.rc}</td><td>${c.o}</td><td>${fmt(c.due)}</td><td>${c.ev||'<span class="missing">None uploaded</span>'}</td><td><span class="tag ${s[0]}">${s[1]}</span></td></tr>`}).join('');
+</script>
+</body>
+</html>

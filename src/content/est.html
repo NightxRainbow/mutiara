@@ -1,0 +1,16 @@
+<div class="band"><div class="wrap">
+  <h1 data-id="Fasilitas yang disetujui">Approved establishments</h1>
+  <p>Processing plants that hold an approval in force from the Indonesian Competent Authority. <span class="sample-flag">Sample data</span></p>
+  <div class="callout"><strong>A listing does not guarantee an individual shipment.</strong> It shows that the plant's control system was approved for the stated products and period. Each consignment still needs its own health certificate.</div>
+  <div class="filters">
+    <div><label for="fq">Approval number, name, province or product</label><input id="fq" placeholder="for example CR 412-13 or shrimp"></div>
+    <div><label for="fm">Destination market</label><select id="fm"><option value="">Any market</option><option>EU</option><option>US</option><option>Japan</option><option>China</option><option>ASEAN</option></select></div>
+    <div><label for="fs">Status</label><select id="fs"><option value="">Any status</option><option value="ok">Valid</option><option value="warn">Valid, expiring</option><option value="bad">Expired or suspended</option></select></div>
+  </div>
+  <p class="small" style="margin:14px 0 0"><span id="ecount"></span> Register updated 18 Nov 2026, 06.00 WIB. <a href="#">Download the full list (CSV)</a></p>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Approval no.</th><th>Establishment</th><th>Province</th><th>Approved products</th><th>Listed for</th><th>Valid until</th><th>Status</th></tr></thead>
+    <tbody id="erows"></tbody>
+  </table></div>
+  <div id="eprofile"></div>
+</div></div>
