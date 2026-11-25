@@ -1,0 +1,73 @@
+<section class="view" id="v-work">
+<div class="ws">
+  <aside class="ws-side">
+    <h2>MUTIARA workspace</h2>
+    <ul>
+      <li class="cur">Overview</li>
+      <li>Facility master <span class="pill">new</span></li>
+      <li>Certificates</li>
+      <li>Audit readiness checklist <span class="pill">new</span></li>
+      <li>Lot traceability <span class="pill">new</span></li>
+      <li>Evidence room and HACCP <span class="pill">new</span></li>
+      <li>Audits and inspections</li>
+      <li>Laboratory and sampling <span class="pill">new</span></li>
+      <li>CAPA register <span class="pill">new</span></li>
+      <li>Incidents and rejections <span class="pill">new</span></li>
+      <li>Cold chain and sensors</li>
+      <li>Publication queue <span class="pill">new</span></li>
+      <li>Users and roles</li>
+      <li>Change log <span class="pill">new</span></li>
+    </ul>
+  </aside>
+  <div class="ws-main">
+    <div class="ws-head">
+      <h1 style="font-size:32px;margin:0">Overview <span class="sample-flag">Sample data</span></h1>
+      <span class="small">Signed in as Manajer Mutu (PMM). This role can check and verify. It cannot publish.</span>
+    </div>
+
+    <div class="panel">
+      <h3>Figures, with the same definitions as the public site</h3>
+      <div class="figs">
+        <div class="fig"><div class="num">1,780</div><p class="name">Units with a certificate in force</p><p class="def">Primary 883 and processing 897.</p><p class="src">Certificate systems. 18 Nov 2026, 06.00. <a href="#">View the 1,780 records</a></p></div>
+        <div class="fig"><div class="num">4,664</div><p class="name">Certificates in force</p><p class="def">312 expired since 30 Oct 2026 are excluded and listed separately.</p><p class="src">Certificate systems. 18 Nov 2026, 06.00. <a href="#">View records</a></p></div>
+        <div class="fig"><div class="num">56</div><p class="name">Open findings</p><p class="def">Primary 21 and post-harvest 35. One definition: a nonconformity not yet verified as closed.</p><p class="src">CAPA register. 18 Nov 2026, 09.12. <a href="#">View the 56 records</a></p></div>
+        <div class="fig"><div class="num">72%</div><p class="name">CAPA closed on time and verified</p><p class="def">126 of 175 that fell due in 2026. Administrative closure alone does not count.</p><p class="src">CAPA register. 18 Nov 2026, 09.12. <a href="#">View records</a></p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>CAPA register</h3>
+      <p class="small" style="margin:0">Status is calculated from the due date. A user cannot leave an item as “in progress” after the deadline.</p>
+      <div class="scroll"><table class="reg"><thead><tr><th>ID</th><th>Finding</th><th>Root cause</th><th>Owner</th><th>Due</th><th>Evidence</th><th>Status</th></tr></thead><tbody id="capa"></tbody></table></div>
+    </div>
+
+    <div class="panel">
+      <h3>Lot trace, backward from the export lot</h3>
+      <p class="small" style="margin:0">Lot LOT-26-1107-A, frozen shrimp, PT Contoh Samudra Satu. Each link shows its source and time. A missing link says so.</p>
+      <ol class="trace">
+        <li><b>Health certificate</b>ID-HC-2026-118877<br><span class="small">Issuing unit, 9 Nov</span></li>
+        <li><b>Container</b>Seal 0048812<br><span class="small">Plant record, 8 Nov</span></li>
+        <li><b>Cold store</b>Room 2, 3 days<br><span class="small">Manual log, 5 to 8 Nov</span></li>
+        <li class="gap"><b>Laboratory test</b><span class="missing">Data not yet available</span><br><span class="small">Requested 6 Nov</span></li>
+        <li><b>Process batch</b>B-1105-02<br><span class="small">Plant record, 5 Nov</span></li>
+        <li><b>Receiving</b>R-1104-17<br><span class="small">Plant record, 4 Nov</span></li>
+        <li><b>Farm</b>Pond ID 3 of supplier S-021<br><span class="small">Supplier record, 4 Nov</span></li>
+      </ol>
+      <p style="margin:14px 0 0"><button class="btn alt">Trace forward from the raw material lot</button></p>
+    </div>
+
+    <div class="panel">
+      <h3>Cold chain and sensors</h3>
+      <p><span class="tag idle">No devices connected</span> 0 of 0 devices reporting. The cold chain indicator is hidden on the leadership dashboard until a real data source exists.</p>
+      <p class="small" style="margin:0">Manual temperature logs remain valid under the plant's procedure and are labelled “manual” wherever they appear. When devices are added, each one needs an ID, location, calibration history, alarm limits and a flag for missing data.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Publication queue</h3>
+      <p class="small" style="margin:0">Status change for CR 255-14, PT Contoh Rajungan Empat: valid to suspended. Four different accounts handle the four steps.</p>
+      <ol class="flow"><li class="done">Entered<br><span class="small">UPT officer, 5 Nov 09.10</span></li><li class="done">Checked<br><span class="small">Technical manager, 5 Nov 10.02</span></li><li class="done">Approved<br><span class="small">Top manager, 5 Nov 11.30</span></li><li class="now">Published<br><span class="small">Publisher, 5 Nov 11.41</span></li></ol>
+      <p style="margin:0"><button class="btn danger">Withdraw this record from the public site</button> <span class="small">Takes effect at once and is written to the change log with a reason.</span></p>
+    </div>
+  </div>
+</div>
+</section>

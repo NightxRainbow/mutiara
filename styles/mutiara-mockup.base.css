@@ -1,0 +1,24 @@
+:root{color-scheme:light;
+--samudra:#0d3349;--laut:#14506e;--mutiara:#f2f5f6;--garis:#c9d3d8;--tinta:#16242c;--abu:#52626b;
+--tautan:#0a5a9c;--merah:#c8102e;
+--ok:#1a7a46;--ok-bg:#e4f3ea;--warn:#8f5200;--warn-bg:#fdf0d9;--bad:#a3232b;--bad-bg:#fbe6e7;--idle:#52626b;--idle-bg:#e9eef0;
+--display:"Bahnschrift","DIN Alternate","Roboto Condensed","Arial Narrow",sans-serif;
+--body:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 var(--body);color:var(--tinta);background:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:.005em}
+h1{font-size:clamp(34px,5vw,52px)}h2{font-size:30px}h3{font-size:20px}
+p{margin:0 0 1em;max-width:70ch}
+a{color:var(--tautan);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #f5b800;outline-offset:2px}
+.small{font-size:14px;color:var(--abu)}
+.btn{font:600 16px var(--body);background:var(--samudra);color:#fff;border:2px solid var(--samudra);padding:10px 18px;border-radius:2px;cursor:pointer}
+.btn.alt{background:#fff;color:var(--samudra)}
+.btn.danger{background:var(--bad);border-color:var(--bad)}
+label{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+input,select{font:16px var(--body);width:100%;padding:9px 10px;border:2px solid var(--tinta);border-radius:0;background:#fff;color:var(--tinta)}
+.view{display:none}.view.on{display:block}
+.band{padding:48px 0}.band.tint{background:var(--mutiara)}
+.foot{background:var(--samudra);color:#dbe6ec;font-size:14px;padding:28px 0;margin-top:0}
+.foot a{color:#fff}

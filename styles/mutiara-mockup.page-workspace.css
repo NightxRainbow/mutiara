@@ -1,0 +1,19 @@
+/* workspace */
+.ws{display:grid;grid-template-columns:240px 1fr;min-height:80vh}
+.ws-side{background:var(--tinta);color:#dfe7ea;padding:20px 0;font-size:15px}
+.ws-side h2{font-size:20px;color:#fff;padding:0 18px}
+.ws-side ul{list-style:none;margin:0;padding:0}
+.ws-side li{padding:7px 18px;display:flex;justify-content:space-between;gap:8px}
+.ws-side li.cur{background:#fff;color:var(--tinta);font-weight:600}
+.pill{font-size:11px;font-weight:600;background:#f5b800;color:#2a2100;padding:1px 6px;border-radius:8px;align-self:center}
+.ws-main{padding:24px 28px 48px;background:var(--mutiara)}
+.ws-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;margin-bottom:16px}
+.panel{background:#fff;border:1px solid var(--garis);padding:18px 20px;margin-top:20px}
+.panel .figs{grid-template-columns:repeat(4,1fr);margin-top:8px}
+.trace{display:flex;list-style:none;padding:0;margin:14px 0 0;overflow-x:auto}
+.trace li{flex:1;min-width:120px;border-top:4px solid var(--ok);padding:8px 10px 0 0;font-size:14px}
+.trace li.gap{border-top-style:dashed;border-top-color:var(--abu)}
+.trace b{display:block}
+.flow{display:flex;gap:0;list-style:none;padding:0;margin:12px 0}
+.flow li{flex:1;border:1px solid var(--garis);padding:8px 10px;font-size:14px;background:#fff}
+.flow li.done{background:var(--ok-bg)}.flow li.now{border:2px solid var(--samudra);font-weight:600}

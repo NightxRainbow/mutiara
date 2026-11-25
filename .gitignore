@@ -41,3 +41,6 @@ Desktop.ini
 # Test coverage and caches
 coverage/
 *.local
+reports/Analisis_Fitur_MUTIARA_Former_Web_MVP.pdf
+reports/Analisis_Fitur_MUTIARA_Former_Web_MVP.html
+reports/Analisis_Fitur_MUTIARA_Former_Web_MVP.docx

@@ -1,0 +1,20 @@
+/* mockup chrome */
+.mock-bar{background:#fff7d6;border-bottom:2px dashed #b99a2e;padding:8px 16px;font-size:14px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.mock-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.mock-tabs button{font:14px var(--body);border:1px solid #b99a2e;background:#fff;padding:4px 10px;cursor:pointer;border-radius:2px}
+.mock-tabs button.on{background:#5c4a00;color:#fff;border-color:#5c4a00}
+body[data-mode="internal"] .public-chrome{display:none}
+/* public chrome */
+.official{background:var(--mutiara);border-bottom:1px solid var(--garis);font-size:14px}
+.official .wrap{display:flex;gap:10px;align-items:center;padding-top:6px;padding-bottom:6px}
+.flag{width:24px;height:16px;border:1px solid var(--garis);background:linear-gradient(var(--merah) 50%,#fff 50%);flex:none}
+.lang{margin-left:auto;font:600 14px var(--body);background:none;border:0;color:var(--tautan);text-decoration:underline;cursor:pointer;padding:4px}
+.mast{background:var(--samudra);color:#fff}
+.mast .wrap{display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-top:18px}
+.brand{color:#fff;text-decoration:none;padding-bottom:16px}
+.brand-main{display:block;font:600 26px/1.1 var(--display)}
+.brand-sub{display:block;font-size:13px;opacity:.85;margin-top:3px}
+.mast nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+.mast nav a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:10px 12px 12px;border-bottom:4px solid transparent}
+.mast nav a:hover{border-bottom-color:#8fb8cc}
+.mast nav a.on{background:#fff;color:var(--samudra);border-bottom-color:#fff}

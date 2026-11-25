@@ -1,0 +1,7 @@
+/* journey */
+.chain{list-style:none;padding:0;margin:24px 0 0;counter-reset:c;border-left:4px solid var(--laut)}
+.chain li{counter-increment:c;padding:0 0 0 24px;margin:0 0 2px;position:relative}
+.chain li::before{content:counter(c);position:absolute;left:-18px;top:10px;width:32px;height:32px;border-radius:50%;background:var(--laut);color:#fff;font:600 17px/32px var(--display);text-align:center}
+.chain summary{font:600 22px var(--display);padding:12px 0;cursor:pointer}
+.chain details{border-bottom:1px solid var(--garis)}
+.chain details[open] summary{color:var(--laut)}

@@ -1,0 +1,94 @@
+<section class="view" id="v-analysis">
+<div class="band"><div class="wrap doc">
+  <h1>Requirements analysis</h1>
+  <p>The reference sites are plain. None of them wins trust with imagery or large claims. They win it by answering one question quickly, showing where the answer came from and when it was last checked. The last online version of MUTIARA failed on that point: the same count differed between pages and expired certificates were shown as active. A foreign auditor who finds one such mismatch stops trusting every other number, so the data rules below matter more than the visual design.</p>
+
+  <h2>What the mockup takes from each reference site</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Pattern</th><th>Taken from</th><th>Where it appears</th></tr></thead>
+    <tbody>
+      <tr><td>Check a certificate by number, without logging in</td><td>NOAA certificate validation</td><td>Home, first screen</td></tr>
+      <tr><td>Facility list with approval number, scope and status, kept separate from per-shipment certificates</td><td>FDA export lists, EU authorised establishments</td><td>Establishments, with the listing disclaimer</td></tr>
+      <tr><td>Find requirements by destination and product</td><td>GOV.UK certificate finder, CFIA requirements library, Mattilsynet</td><td>Export requirements</td></tr>
+      <tr><td>Guidance organised by steps, with reporting of nonconformity</td><td>MPI New Zealand</td><td>Assurance journey, notifications</td></tr>
+      <tr><td>One facility profile tied to HACCP evidence and risk-based audits</td><td>DAFF Australia</td><td>Workspace: facility master, evidence room, audit readiness</td></tr>
+      <tr><td>Evidence chain from origin to export</td><td>SERNAPESCA Chile</td><td>Workspace: lot trace. Public: assurance journey</td></tr>
+      <tr><td>Roles, decision trail and data exchange between units</td><td>TRACES NT</td><td>Workspace: publication queue, change log</td></tr>
+      <tr><td>Public summary of alerts, details restricted</td><td>RASFF</td><td>Home: official notifications</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>The 28 findings and how each is answered</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Items</th><th>Requirement</th><th>Where in the mockup</th></tr></thead>
+    <tbody>
+      <tr><td>1, 5, 7</td><td>One definition, one source and one update time for each figure. Totals must add up. Each number opens the records behind it.</td><td>Home and workspace figures</td></tr>
+      <tr><td>2</td><td>Status is calculated from the validity date. A warning appears before expiry.</td><td>Certificate check, directory status column</td></tr>
+      <tr><td>3</td><td>Required fields are enforced. A gap is shown as “data not yet available”.</td><td>Establishment profile, lot trace</td></tr>
+      <tr><td>4, 28</td><td>Overdue is calculated from the due date. Sample data carries a visible flag or is removed.</td><td>CAPA register, sample flags</td></tr>
+      <tr><td>6</td><td>Unfinished maps and charts stay hidden until they have data, axes and a stated period.</td><td>Left out on purpose</td></tr>
+      <tr><td>8, 9</td><td>No “guaranteed” or “under control” wording. Show the number, its scope and its period.</td><td>Home figures, export rejections card</td></tr>
+      <tr><td>10</td><td>Show only services that belong to BPPMHKP. Approval rate uses decided applications only.</td><td>Not drawn. Needs the process owner's confirmation.</td></tr>
+      <tr><td>11</td><td>No personal names or full NIB on public pages. Privacy review before publication.</td><td>Directory shows the legal entity only</td></tr>
+      <tr><td>12 to 18</td><td>Add the missing core modules: lot trace, evidence room, CAPA, audit readiness, audit and laboratory workflow, facility master with publication approval and withdrawal, incident handling.</td><td>Workspace menu and panels</td></tr>
+      <tr><td>19, 20</td><td>Sensor status reflects reality. Cover cold store and container temperature. Keep manual logging as a valid fallback.</td><td>Workspace: cold chain panel</td></tr>
+      <tr><td>21</td><td>Eight roles, four separate steps to publish, change log with before and after.</td><td>Workspace: publication queue</td></tr>
+      <tr><td>22</td><td>Change the admin password that was shared in chat.</td><td>Action for today, not a design item</td></tr>
+      <tr><td>23, 24</td><td>English and Indonesian switch. Certificate check by number or QR.</td><td>Top strip, home</td></tr>
+      <tr><td>25</td><td>Directory shows scope, validity, issuer, update date and the shipment disclaimer.</td><td>Establishments</td></tr>
+      <tr><td>26</td><td>United States and Japan requirements, with notice of rule changes.</td><td>Export requirements</td></tr>
+      <tr><td>27</td><td>Assurance journey, authority profile, public notifications, contact for foreign authorities.</td><td>Journey and home. The authority profile page is not drawn yet.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>What has to exist behind the screens</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Area</th><th>Requirement</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="4">Data</td><td>One facility ID used by every unit and every page.</td><td>Without it, counts of units and laboratories will keep disagreeing.</td></tr>
+      <tr><td>An indicator dictionary: owner, definition, source system and refresh time for each figure. Pages read the stored figure and never calculate their own.</td><td>Fixes items 1, 5 and 7 at the root.</td></tr>
+      <tr><td>Status rules live in the database: valid, expiring, expired, overdue. Users cannot type a status.</td><td>Fixes items 2 and 4.</td></tr>
+      <tr><td>Sample data cannot enter the live database. Every record carries its source.</td><td>Fixes items 4 and 28.</td></tr>
+      <tr><td rowspan="3">Integration</td><td>Certificate and facility status are read from the issuing unit's system by API or scheduled import.</td><td>MUTIARA must not hold a second, competing status.</td></tr>
+      <tr><td>A permanent web address and QR code for each certificate and establishment.</td><td>Buyers and auditors can cite and recheck a record.</td></tr>
+      <tr><td>The register can be downloaded as a file.</td><td>Foreign authorities compare lists in bulk, as with the FDA and EU lists.</td></tr>
+      <tr><td rowspan="3">Governance</td><td>Eight roles. Entry, check, approval and publication held by different accounts.</td><td>Required by the concept document, chapter XI.</td></tr>
+      <tr><td>Change log with user, time, before, after and reason. Records cannot be deleted without procedure.</td><td>An auditor will ask who changed a status and why.</td></tr>
+      <tr><td>Immediate withdrawal of a public record, and a channel for a company to object or request correction.</td><td>A wrong listing does more harm than a missing one.</td></tr>
+      <tr><td rowspan="3">Security and law</td><td>Public portal and workspace run as separate applications. The public side holds only approved copies.</td><td>A breach of the public site must not expose production or trade data.</td></tr>
+      <tr><td>Two-step sign-in for internal accounts, no shared accounts, penetration test before launch.</td><td>Item 22 shows the current practice is unsafe.</td></tr>
+      <tr><td>Personal data review under Law 27/2022 before names or NIB are published. Legal basis recorded for each published field.</td><td>Item 11.</td></tr>
+      <tr><td rowspan="3">Public site quality</td><td>English and Indonesian, with translations reviewed by a person who knows the trade terms.</td><td>The readers are regulators. A wrong term reads as a wrong claim.</td></tr>
+      <tr><td>Light pages that work on a phone and a slow connection, readable by screen readers.</td><td>GOV.UK and CFIA set this standard.</td></tr>
+      <tr><td>Each page shows when it was last updated. Uptime is monitored. A notice appears when a source system is unavailable.</td><td>Stale data must be visible as stale.</td></tr>
+      <tr><td rowspan="2">Operations</td><td>A named data steward in each unit and a monthly data quality report.</td><td>Software alone will not keep the figures consistent.</td></tr>
+      <tr><td>A response time for the foreign authority desk, with ticket numbers and reviewed replies.</td><td>Response speed is one of the outcome measures in chapter XII.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Suggested order of work</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>When</th><th>Work</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Days 1 to 30</td><td>Fix items 1 to 5. Change the shared password. Name the owner and source for each figure. Remove or flag sample data.</td><td>A site whose numbers agree with each other</td></tr>
+      <tr><td>Days 31 to 60</td><td>Public portal: directory, certificate check, language switch, requirements for the EU, United States, Japan and China.</td><td>What a foreign buyer needs on day one</td></tr>
+      <tr><td>Days 61 to 90</td><td>Workspace: facility master, publication queue, CAPA register, audit readiness checklist, evidence room, lot trace for pilot plants.</td><td>Internal proof behind the public status</td></tr>
+      <tr><td>Months 4 to 6</td><td>Pilot with 5 to 10 plants. Laboratory and sampling, incident handling, foreign authority desk.</td><td>Verified case studies for “Quality in action”</td></tr>
+      <tr><td>After the pilot</td><td>Sensors, risk dashboard, data exchange with other countries.</td><td>Added only once the base data is proven</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Decisions that belong to leadership</h2>
+  <div class="scroll"><table class="reg">
+    <thead><tr><th>Question</th><th>What it changes</th></tr></thead>
+    <tbody>
+      <tr><td>Which unit and which system own the status of a facility and a certificate?</td><td>Where every public figure is read from</td></tr>
+      <tr><td>Which certificates can the public verify: facility certificates, per-shipment health certificates, or both?</td><td>The scope of the certificate check</td></tr>
+      <tr><td>Is there a legal basis to publish company name, address and status?</td><td>What the directory may show</td></tr>
+      <tr><td>Is the data on the current site real or sample?</td><td>Whether to clean it or replace it</td></tr>
+      <tr><td>Do export permits and quarantine inspection stay on the dashboard?</td><td>Item 10. They are not BPPMHKP services.</td></tr>
+    </tbody>
+  </table></div>
+
+</div></div>
+</section>
